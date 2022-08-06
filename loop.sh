@@ -1,10 +1,12 @@
 #!/bin/bash
 
-for t in 1 2 4 8 12 16 20 24 32 
+for t in 1 2 4
 do
-  for n  in 1 10 100 1000 10000 100000 500000 1000000 
+  echo NUMT = $t
+  for n  in 10 20 40 80 160 320 640 1000
+
   do
-        g++ -O3   montecarlo.cpp  -DNUMT=$t -DNUMTRIALS=$n  -o montecarlo  -lm  -fopenmp
-    ./montecarlo
+        g++ -DNUMT=$t -DNUMNODES=$n proj2.cpp  -o proj2  -lm  -fopenmp
+    ./proj2
   done
 done
